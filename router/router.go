@@ -4,12 +4,15 @@ import (
 	"gateway/api"
 	"gateway/api/spider_api"
 	"gateway/common"
+	"gateway/constant"
 	mobile "github.com/floresj/go-contrib-mobile"
 	"github.com/gin-gonic/gin"
 )
 
 func SetUpRouter() *gin.Engine {
 	r := gin.Default()
+
+	gin.SetMode(constant.GetGinMode())
 
 	// Use mobile resolver to get device
 	r.Use(mobile.Resolver())
