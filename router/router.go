@@ -10,6 +10,14 @@ import (
 )
 
 func SetUpRouter() *gin.Engine {
+	// Setup gin console color
+	gin.ForceConsoleColor()
+
+	// Setup gin console format
+	//gin.DebugPrintRouteFunc = func(httpMethod, absolutePath, handlerName string, nuHandlers int) {
+	//	log.Info().Msgf("")
+	//}
+
 	r := gin.Default()
 
 	gin.SetMode(constant.GetGinMode())
