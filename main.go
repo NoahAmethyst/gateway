@@ -1,11 +1,11 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"gateway/cluster/rpc"
 	"gateway/router"
 	"gateway/utils/log"
-
 	"os"
 	"time"
 )
@@ -25,9 +25,12 @@ func main() {
 
 	r := router.SetUpRouter()
 
+	gracefulShutdown(context.Background(), r)
+
 	log.Info().Msgf("Http server start at 0.0.0.0:%s", httpPort)
 
 	if err := r.Run(fmt.Sprintf(":%s", httpPort)); err != nil {
 		panic(err)
 	}
+
 }

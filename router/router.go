@@ -35,10 +35,12 @@ func SetUpRouter() *gin.Engine {
 		_api.POST("healthcheck", api.HealthCheck)
 	}
 
-	_spider := _api.Group("spider")
+	// Spider api
 
+	_spider := _api.Group("spider")
 	{
 		_spider.GET("bing/wallpaper/:region/:return_type", spider_api.BingWallpaper)
 	}
+
 	return r
 }
