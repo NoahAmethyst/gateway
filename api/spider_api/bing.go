@@ -64,3 +64,47 @@ func BingWallpaper(c *gin.Context) {
 
 	return
 }
+
+func WeiboHot(c *gin.Context) {
+	cli := spider_svc.SvcCli()
+	hot, err := cli.WeiboHot(c, &spider_pb.SpiderReq{})
+	if err != nil {
+		common.FailedResponse(c, err)
+	} else {
+		common.SuccessResponse(c, hot.WeiboHotList)
+	}
+	return
+}
+
+func ZhiHuHot(c *gin.Context) {
+	cli := spider_svc.SvcCli()
+	hot, err := cli.ZhihuHot(c, &spider_pb.SpiderReq{})
+	if err != nil {
+		common.FailedResponse(c, err)
+	} else {
+		common.SuccessResponse(c, hot.ZhihuHotList)
+	}
+	return
+}
+
+func D36KrHot(c *gin.Context) {
+	cli := spider_svc.SvcCli()
+	hot, err := cli.D36KrHot(c, &spider_pb.SpiderReq{})
+	if err != nil {
+		common.FailedResponse(c, err)
+	} else {
+		common.SuccessResponse(c, hot.D36KrHotList)
+	}
+	return
+}
+
+func WallStreetNews(c *gin.Context) {
+	cli := spider_svc.SvcCli()
+	hot, err := cli.WallStreetNews(c, &spider_pb.SpiderReq{})
+	if err != nil {
+		common.FailedResponse(c, err)
+	} else {
+		common.SuccessResponse(c, hot.WallStreetNews)
+	}
+	return
+}

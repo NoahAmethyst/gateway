@@ -40,6 +40,10 @@ func SetUpRouter() *gin.Engine {
 	_spider := _api.Group("spider")
 	{
 		_spider.GET("bing/wallpaper/:region/:return_type", spider_api.BingWallpaper)
+		_spider.GET("/hot/weibo", spider_api.WeiboHot)
+		_spider.GET("/hot/zhihu", spider_api.ZhiHuHot)
+		_spider.GET("/hot/36kr", spider_api.D36KrHot)
+		_spider.GET("/news/wallstreet", spider_api.WallStreetNews)
 	}
 
 	return r
