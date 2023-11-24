@@ -5,6 +5,8 @@
 ### Features
 
 * Get bing daily background with CN and US region and can specific return type with json or redirect
+* Get top list info with weibo,zhihu,36kr
+* Get latest news with wall street cn
 
 ### Example
 
