@@ -12,5 +12,7 @@ func Logger() gin.HandlerFunc {
 		reqIp := c.ClientIP()
 		log.Info().Msgf("Request from %s use %s agent [%s]", reqIp, reqPlatform, c.GetHeader("User-Agent"))
 		c.Next()
+
+		log.Info().Msgf("request headers:%+v", c.Request.Header)
 	}
 }
