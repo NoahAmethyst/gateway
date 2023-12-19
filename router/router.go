@@ -5,6 +5,7 @@ import (
 	"gateway/api/spider_api"
 	"gateway/common"
 	"gateway/constant"
+	"gateway/service"
 	mobile "github.com/floresj/go-contrib-mobile"
 	"github.com/gin-gonic/gin"
 )
@@ -35,6 +36,12 @@ func SetUpRouter() *gin.Engine {
 		_api.POST("healthcheck", api.HealthCheck)
 	}
 
+	// Sandbox api
+
+	_test := _api.Group("sandbox")
+	{
+		_test.GET("stream", service.Stream)
+	}
 	// Spider api
 
 	_spider := _api.Group("spider")
@@ -44,6 +51,7 @@ func SetUpRouter() *gin.Engine {
 		_spider.GET("/hot/zhihu", spider_api.ZhiHuHot)
 		_spider.GET("/hot/36kr", spider_api.D36KrHot)
 		_spider.GET("/news/wallstreet", spider_api.WallStreetNews)
+
 	}
 
 	return r
